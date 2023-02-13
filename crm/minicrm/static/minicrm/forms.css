@@ -1,0 +1,35 @@
+body {
+    /* background-color: rgb(207, 229, 236); */
+    background-color: rgb(45, 45, 71);
+    color: whitesmoke;
+}
+
+nav {
+    background-color: rgb(141, 175, 205);
+    color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    /* border: 2px solid rgb(139, 187, 214); */
+    border-radius: 0.5rem;
+    /* background-color: aliceblue; */
+}
+
+form label {
+    display: block;
+}
+
+form input {
+    width: 100%;
+}
+
+form input[type=submit] {
+    background-color: rgb(141, 175, 205);
+}
+
+form ul {
+    list-style: none;
+}

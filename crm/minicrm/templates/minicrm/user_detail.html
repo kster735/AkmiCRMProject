@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% extends 'minicrm/base.html' %}
+
+{% block title %}
+<title>Agent details</title>
+{% endblock title %}
+
+{% load static %}
+{% block content %}
+
+    <div class="container mx-auto">
+        <h2 class="text-start mb-5 ms-2"> {{agent.user.first_name}} {{agent.user.last_name}}</h2>
+        <div class="container row mx-auto">
+            <div class="col-lg-4 cardview-image mb-5"> 
+                <img src="{{agent.agent_photo.url}}" alt="Ann Mann"
+                 style= " width:256px; height:256px ">
+            </div>
+            <ul class="list-group col-sm-8 mb-5">
+                <li class="list-group-item"><b> Username: </b> {{user.username}}</li>
+                <li class="list-group-item"><b> Email: </b> {{user.email}}</li>
+                <li class="list-group-item"><b> phone: </b> {{agent_phone}}</li>
+                <li class="list-group-item"><b> Date joined: </b> {{user.date_joined}}</li>
+                <li class="list-group-item"><b> Last login: </b> {{user.last_login}}</li>
+                <li class="list-group-item"><b> Is Admin: </b>    
+                    {% if user.is_superuser %}
+                        Yes
+                    {% else %}
+                        No
+                    {% endif %}
+                </li>
+                <li class="list-group-item"><b> Is Staff: </b>    
+                    {% if user.is_staff %}
+                        Yes
+                    {% else %}
+                        No
+                    {% endif %}
+                </li>
+                <li class="list-group-item"><b> Is Active: </b>    
+                    {% if user.is_active %}
+                        Yes
+                    {% else %}
+                        No
+                    {% endif %}
+                </li>
+                <li class="list-group-item">
+                    <div class="col-md-12 text-right">
+                        <a href="#" class="btn btn-warning">Edit</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+{% endblock content %}

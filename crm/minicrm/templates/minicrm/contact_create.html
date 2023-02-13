@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+{% extends 'minicrm/base.html' %}
+
+{% block title %}
+<title>Create Contact</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <h2>New Contact</h2>
+    <p> Agent: {{request.user.username}}  </p>
+    <p> pk: {{agent}} </p>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-primary" type="submit" value="save">
+    </form>
+
+    {% comment %} <form  action="{% url 'minicrm:create_contact' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p> 
+            <input type="hidden" id="id_agent" name="agent" required="" value="{{agent}}">
+        </p>
+        <p>
+          <label for="id_contact_firstname">Contact firstname:</label>
+          <input type="text" name="contact_firstname" maxlength="256" required="" id="id_contact_firstname">
+        </p>
+        <p>
+            <label for="id_contact_lastname">Contact lastname:</label>
+            <input type="text" name="contact_lastname" maxlength="256" required="" id="id_contact_lastname">
+        </p> 
+        <p>
+            <label for="id_contact_email">Contact email:</label>
+            <input type="text" name="contact_email" maxlength="256" required="" id="id_contact_email">
+        </p>
+        <p>
+            <label for="id_contact_phone">Contact phone:</label>
+            <input type="text" name="contact_phone" maxlength="10" required="" id="id_contact_phone">
+        </p>
+        <p>
+            <label for="id_contact_phone2">Contact phone2:</label>
+            <input type="text" name="contact_phone2" maxlength="10" required="" id="id_contact_phone2">
+        </p>
+        <p>
+            <label for="id_contact_address">Contact address:</label>
+            <input type="text" name="contact_address" maxlength="256" required="" id="id_contact_address">
+        </p>
+        <p>
+            <label for="id_contact_company">Contact company:</label>
+            <input type="text" name="contact_company" maxlength="256" required="" id="id_contact_company">
+        </p>
+        <p>
+            <label for="id_contact_vat_no">Contact vat no:</label>
+            <input type="text" name="contact_vat_no" maxlength="9" required="" id="id_contact_vat_no">
+        </p>
+        <input class="btn btn-primary" type="submit" value="save">
+    </form>
+</div> {% endcomment %}
+
+{% endblock content %}

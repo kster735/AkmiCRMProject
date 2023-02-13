@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends 'minicrm/base.html' %}
+
+{% block title %}
+<title>Message</title>
+{% endblock title %}
+
+{% load static %}
+{% block content %}
+
+    <div class="container mx-auto">
+        <h2 class="text-start mb-5 ms-2"> {{contact.contact_firstname}} {{contact.contact_lastname}}</h2>
+        <div class="container row justify-content-center">
+            <ul class="list-group col-sm-8 mb-5">
+                <li class="list-group-item"><b> Contact: </b> {{message.contact.contact_firstname}} {{message.contact.contact_lastname}}</li>
+                <li class="list-group-item"><b> Title: </b> {{message.message_title}}</li>
+                <li class="list-group-item"><b> Content: </b> {{message.message_content}}</li>
+                <li class="list-group-item"><b> Date: </b> {{message.message_datetime}}</li>
+                <li class="list-group-item"><b> Channel: </b> {{message.message_channel}} </li>
+                <li class="list-group-item"><b> Due Date: </b> {{message.message_due_date}}</li>
+                <li class="list-group-item">
+                    <div class="col-md-12 text-right">
+                        <a href="{% url 'minicrm:update_message' pk=message.pk %}" class="btn btn-warning">Edit</a>
+                        <a href="#" class="btn btn-danger">Delete</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            {{contact.pk}}
+        </div>
+    </div>
+    
+{% endblock content %}
+
+
+
+
+

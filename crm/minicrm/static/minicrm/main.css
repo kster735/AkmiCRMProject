@@ -1,0 +1,162 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    background-color: rgba(255, 112, 2, 0.9);
+    color:blanchedalmond;
+    min-width: 200px;
+    min-height: 100vh;
+    z-index: 2;
+    transition: 0.2s linear;
+}
+
+.menu-active {
+    left: 0;
+}
+
+.navbar {
+    position: fixed;
+    /* background-color: aquamarine; */
+    width:100vh;
+    top: 50px;
+    z-index: 1;
+
+}
+ 
+.hamburger {
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+    background-color: rgba(255,255,255,0);
+    cursor: pointer;
+    /* border: 2px solid white; */
+    border-radius: 2px;
+}
+
+.hamburger span,
+.hamburger span::before,
+.hamburger span::after {
+    display: block;
+    position: absolute;
+    background-color:rgba(255, 112, 2, 0.9);
+    border-radius: 2px;
+    height: 2px;
+    width: 24px;
+    transition: 0.25s ease-in-out; 
+}
+
+.hamburger span::before {
+    content: '';
+    margin-top: -8px;
+}
+
+.hamburger span::after {
+    content: '';
+    margin-top: 8px;
+}
+
+.checked > span{
+    margin-top: 0;
+    background-color: white;
+    transform: rotate(360deg);
+}
+
+.checked > span::before{
+    margin-top: 0;
+    transform: rotate(-45deg);
+}
+
+.checked > span::after{
+    margin-top: 0;
+    transform: rotate(45deg);
+}
+
+.content {
+    top: 56px;
+    position: absolute;
+    background-color: white;
+    padding: 1rem;
+}
+
+.content .articles p {
+    padding: 1rem 0rem;
+}
+
+
+/* Card */
+
+.cardview {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    border: 2px solid rgb(141, 175, 205);
+    border-radius: 1rem;
+    padding: 0.5rem; 
+
+}
+
+.cardview-image {
+    padding-right: 2rem;
+    /* background-color: lightgreen; */
+
+}
+
+.cardview-image img {
+    width: 6rem;
+    height: 6rem; 
+    flex-basis: 30%;
+    border-radius: 50%;
+    object-fit: cover; 
+    border: 1px solid rgb(141, 175, 205);
+}
+
+.cardview-content {
+    /* background-color: lightskyblue; */
+    flex-basis:60%;
+}
+
+.cardview-content-body {
+    display: flex;
+    /* background-color: pink; */
+    justify-content: space-between;
+}
+
+
+/* End Card */
+
+@media (min-width:1024px) {
+    
+    .app {
+        display: flex;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .menu {
+        left: 0;
+    }
+
+    .content {
+        top: 0;
+        left: 200px;
+        width: calc(100vw - 200px);
+        min-height: 100vh;
+    }
+
+}

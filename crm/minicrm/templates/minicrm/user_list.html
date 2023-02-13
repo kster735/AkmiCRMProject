@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% extends 'minicrm/base.html' %}
+
+{% block title %}
+<title>Users</title>
+{% endblock title %}
+
+
+{% load static %}
+{% block content %}
+
+
+
+<div class="container justify-content-center">
+    <div class="row">
+        <div class="col-6 text-start">
+            <div class="fs-1 " style="color: rgb(141, 175, 205)"> Users </div>
+        </div>
+        <div class="col-6 text-end">
+            <a href=" {% url 'signup' %} " class="btn btn-outline-primary ms-5 align-bottom">New</a>
+        </div>
+        <hr class="mb-5"> 
+    </div>
+</div>
+<div class="container justify-content-center mb-5">
+    <div class="row g-5">
+{% if user_list %}
+{% for user in user_list %}
+        <div class="col-lg-6 col-sm-12">
+            
+            <div class="cardview">
+                <div class="cardview-image">
+                    {% comment %} <img src="{{agent.agent_photo.url}}" alt="photo"> {% endcomment %}
+                </div>
+                <div class="cardview-content">
+                    <div class="cardview-content-title">
+                        <h3>  {{user.first_name}} {{user.last_name}} </h3>
+                    </div>
+                    <div class="cardview-content-body"> 
+                        <div class="cardview-content-body-text pe-4">
+                            {{user.email}}
+                        </div>
+                        <div class="cardview-content-btn">
+                            <a href="  {% url 'minicrm:detail_user' pk=user.pk %} " class="btn btn-outline-primary">view</a>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+{% endfor %}
+    </div>
+</div>
+{% else %}
+<p>No Users</p>
+{% endif %}
+
+
+
+</div>
+
+
+{% endblock content %}

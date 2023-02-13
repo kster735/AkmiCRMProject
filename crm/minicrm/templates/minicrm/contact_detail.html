@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends 'minicrm/base.html' %}
+
+{% block title %}
+<title>Contact details</title>
+{% endblock title %}
+
+{% load static %}
+{% block content %}
+
+    <div class="container mx-auto">
+        <h2 class="text-start mb-5 ms-2"> {{contact.contact_firstname}} {{contact.contact_lastname}}</h2>
+        <div class="container row justify-content-center">
+            {% comment %} <div class="col-lg-4 cardview-image mb-5"> 
+                <img src="{% static 'images/person1.png' %}" alt="contact icon"
+                 style= " width:256px; height:256px ">
+            </div> {% endcomment %}
+            <ul class="list-group col-sm-8 mb-5">
+                <li class="list-group-item"><b> Assigned Agent: </b> {{contact.agent.user.first_name}} {{contact.agent.user.last_name}}</li>
+                <li class="list-group-item"><b> Email: </b> {{contact.contact_email}}</li>
+                <li class="list-group-item"><b> phone: </b> {{contact.contact_phone}}</li>
+                <li class="list-group-item"><b> phone2: </b> {{contact.contact_phone2}}</li>
+                <li class="list-group-item"><b> Address: </b> {{contact.contact_address}}</li>
+                <li class="list-group-item"><b> Company: </b> {{contact.contact_company}}</li>
+                <li class="list-group-item"><b> VAT No: </b> {{contact.contact_vat_no}}   
+                <li class="list-group-item">
+                    <div class="col-md-12 text-right">
+                        <a href="{% url 'minicrm:update_contact' pk=contact.pk %}" class="btn btn-warning">Edit</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            {{contact.pk}}
+        </div>
+    </div>
+    
+{% endblock content %}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+{% extends 'minicrm/base.html' %}
+
+{% block title %}
+<title>Update Contact</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <h2>Update Contact</h2>
+    <p> Agent: {{request.user.username}}  </p>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-primary" type="submit" value="save">
+    </form>
+
+{% endblock content %}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends 'minicrm/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Login" class="btn btn-primary mb-3">
+        <a href="/admin" class="btn btn-outline-info ">Admin</a>
+    </form>
+
+    
+</div>
+{% endblock content %}

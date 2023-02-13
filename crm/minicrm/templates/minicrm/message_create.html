@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+{% extends 'minicrm/base.html' %}
+
+{% block title %}
+<title>Create Message</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <h2>New Message</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-primary" type="submit" value="save">
+    </form>
+</div>
+
+{% endblock content %}

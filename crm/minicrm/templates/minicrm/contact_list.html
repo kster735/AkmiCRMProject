@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% extends 'minicrm/base.html' %}
+
+{% block title %}
+<title>Contacts</title>
+{% endblock title %}
+
+{% load static %}
+{% block content %}
+
+<div class="container justify-content-center">
+    <div class="row">
+        <div class="col-6 text-start">
+            <div class="fs-1 " style="color: rgb(141, 175, 205)"> Contacts </div>
+        </div>
+        <div class="col-6 text-end">
+            <a href=" {% url 'minicrm:create_contact' %} " class="btn btn-outline-primary ms-5 align-bottom">New</a>
+        </div>
+        <hr class="mb-5"> 
+    </div>
+</div>
+<div class="container justify-content-center mb-5">
+    <div class="row g-5">
+{% if contact_list %}
+{% for contact in contact_list %}
+        <div class="col-lg-6 col-sm-12">
+            
+            <div class="cardview">
+                <div class="cardview-image">
+                    <img src=" {% static 'minicrm/images/person1.png' %} " alt="photo">
+                </div>
+                <div class="cardview-content">
+                    <div class="cardview-content-title">
+                        <h3>  {{contact.contact_firstname}} {{contact.contact_lastname}} </h3>
+                    </div>
+                    <div class="cardview-content-body"> 
+                        <div class="cardview-content-body-text pe-4">
+                            {{contact.contact_email}}
+                        </div>
+                        <div class="cardview-content-btn">
+                            <a href="  {% url 'minicrm:detail_contact' pk=contact.pk %} " class="btn btn-outline-primary">view</a>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+{% endfor %}
+    </div>
+</div>
+{% else %}
+<p>No contacts yet</p>
+{% endif %}
+
+
+
+</div>
+
+
+{% endblock content %}
